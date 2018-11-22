@@ -44,18 +44,8 @@ public class Comando {
 
 
     private boolean verificaComando(Comando comando){
-        Comandos comandos = new Comandos();
-
-        if (comandos.verificaExistencia(comando)){
-            if(comandos.verificaImplementacao(comando)){
-                comandos.chamaComando(comando);
-                return true;
-            }
-        }else {
-            System.out.println("Comando inexistente");
-            return false;
-        }
-
+        System.out.println("verifica comando não implementado");
+        return false;
     }
 
     /**
@@ -73,8 +63,7 @@ public class Comando {
      * @return boolean se os parametros estão certos ou não
      */
     private boolean verificaParametros(){
-
-
+        System.out.println("verifica parametro não implementado");
         return false;
     }
 
