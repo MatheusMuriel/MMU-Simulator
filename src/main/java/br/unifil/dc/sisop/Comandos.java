@@ -10,25 +10,26 @@ public class Comandos {
     public boolean verificaExistencia(Comando cmd){
 
         switch (cmd.nome){
-            case "terminar":
+            case ("terminar"):
                 return true;
 
-            case "relatorio":
+            case ("relatorio"):
                 return true;
 
-            case "ajuda":
+            case ("ajuda"):
                 return true;
 
-            case "configurar":
+            case ("configurar"):
                 return true;
 
-            case "processo":
+            case ("processo"):
                 return true;
 
-            case "acesso":
+            case ("acesso"):
                 return true;
 
             default:
+                System.out.println("Comando inexistente.");
                 return false;
         }
 
@@ -42,25 +43,25 @@ public class Comandos {
     public boolean verificaImplementacao(Comando cmd){
 
         switch (cmd.nome){
-            case "terminar":
-                return false;
+            case ("terminar"):
+                return true;
 
-            case "relatorio":
-                return false;
+            case ("relatorio"):
+                return true;
 
-            case "ajuda":
-                return false;
+            case ("ajuda"):
+                return true;
 
-            case "configurar":
-                return false;
+            case ("configurar"):
+                return true;
 
-            case "processo":
-                return false;
+            case ("processo"):
+                return true;
 
-            case "acesso":
-                return false;
-
+            case ("acesso"):
+                return true;
             default:
+                System.out.println("Comando não implementado.");
                 return false;
         }
     }
@@ -69,5 +70,31 @@ public class Comandos {
     public void chamaComando(Comando comando) {
         
 
+    }
+
+    public boolean verificaParametros(Comando cmd) {
+        System.out.println("Metodo verificaParametro em implementação");
+        switch (cmd.nome){
+            case ("terminar"):
+                return (cmd.getParametros().size() == 0);
+
+            case ("relatorio"):
+                return false;
+
+            case ("ajuda"):
+                return false;
+
+            case ("configurar"):
+                return false;
+
+            case ("processo"):
+                return false;
+
+            case ("acesso"):
+                return false;
+
+            default:
+                return true;
+        }
     }
 }

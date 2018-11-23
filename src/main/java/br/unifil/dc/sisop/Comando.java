@@ -34,7 +34,7 @@ public class Comando {
         return this.descAjuda;
     }
 
-    private List<String> getParametros() {
+    protected List<String> getParametros() {
         return parametros;
     }
 
