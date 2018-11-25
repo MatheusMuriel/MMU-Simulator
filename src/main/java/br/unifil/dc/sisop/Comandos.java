@@ -7,7 +7,7 @@ public class Comandos {
      * @param cmd comando a ser verificado
      * @return true se sim, false se não
      */
-    public boolean verificaExistencia(Comando cmd){
+    public boolean verificaExistencia(Terminal.Comando cmd){
 
         switch (cmd.nome){
             case ("terminar"):
@@ -36,11 +36,13 @@ public class Comandos {
     }
 
     /**
-     * Metodo que diz se o comando esta ou não implementados
+     * Metodo que diz se o comando esta ou não implementados.
+     *
+     * Para fazer uma alteração de implementação, deve se alterar aqui.
      * @param cmd comando a ser verificado
      * @return true se sim, false se não
      */
-    public boolean verificaImplementacao(Comando cmd){
+    public boolean verificaImplementacao(Terminal.Comando cmd){
 
         switch (cmd.nome){
             case ("terminar"):
@@ -66,14 +68,19 @@ public class Comandos {
         }
     }
 
-
-    public void chamaComando(Comando comando) {
+    /**
+     * Metodo feito para chamar os comandos. De fato começar a executarlos,
+     * Foi feito um metodo especifico para isso pois pode haver um tratamento de passagem e etc...
+     *
+     * @param comando
+     */
+    public void chamaComando(Terminal.Comando comando) {
         
 
     }
 
-    public boolean verificaParametros(Comando cmd) {
-        System.out.println("Metodo verificaParametro em implementação");
+    public boolean verificaParametros(Terminal.Comando cmd) {
+        System.out.println("Metodo Comandos.verificaParametro em implementação");
         switch (cmd.nome){
             case ("terminar"):
                 return (cmd.getParametros().size() == 0);
@@ -97,4 +104,8 @@ public class Comandos {
                 return true;
         }
     }
+
+
+
+
 }

@@ -3,7 +3,6 @@ package br.unifil.dc.sisop;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import br.unifil.dc.sisop.MetodosAuxiliares.*;
 
 class Terminal {
     MetodosAuxiliares ma = new MetodosAuxiliares();
@@ -54,4 +53,39 @@ class Terminal {
         return 0;
     }
 
+    public static class Comando {
+        public String nome;
+        String descAjuda;
+        ArrayList<String> parametros;
+        Boolean implementado;
+
+        /**
+         * Construtor que recebe um nome
+         * @param nome String contendo o nome do Comando
+         */
+        public Comando(String nome) {
+            this.nome = nome;
+        }
+
+        /**
+         * Recebe um nome e uma seguencia X de parametros,
+         * Os "String..." transformar esses parametros em um Array
+         * @param nome String contendo o nome do Comando
+         * @param parametros Numero X de parametros
+         */
+        public Comando(String nome, ArrayList<String> parametros) {
+            this.nome = nome;
+
+            this.parametros = parametros;
+        }
+
+        private String getAjuda(){
+            return this.descAjuda;
+        }
+
+        protected List<String> getParametros() {
+            return parametros;
+        }
+
+    }
 }
