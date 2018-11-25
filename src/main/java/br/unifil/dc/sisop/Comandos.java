@@ -1,6 +1,11 @@
 package br.unifil.dc.sisop;
 
+import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
+import java.util.Optional;
+
 public class Comandos {
+
 
     /**
      * Metodo que diz se o comando existe ou não
@@ -87,6 +92,9 @@ public class Comandos {
      */
     public boolean verificaParametros(Terminal.Comando cmd) {
         System.out.println("Metodo Comandos.verificaParametro em implementação");
+        ArrayList<String> parametros = cmd.getParametros();
+
+
         switch (cmd.nome){
             case ("terminar"):
                 return false;
@@ -98,18 +106,58 @@ public class Comandos {
                 return false;
 
             case ("configurar"):
-                return false;
+                Integer quantBits;
+
+                Optional<Integer> o = ma.pegaNumero(parametros.get(0));
+                if (o.isPresent()) {
+                    quantBits = o.get();
+                } else {
+                    System.err.println("Quantidade de Bits invalida ou inexistente.");
+                    return false;
+                }
+
+                switch (parametros.get(1)){
+                    case ("registradores-base-e-limite"):
+                        switch (parametros.get(2)){
+                            case ("bitmap"):
+                                Integer t;
+                                Optional op = ma.pegaNumero(parametros.get(3));
+                                //op.ifPresent(c -> t = o.get());
+
+
+
+                            case ("lista-encadeada"):
+                        }
+
+                    case ("memoria-virtual"):
+
+                    default:
+                        System.err.println("Especifique o tipo de MMU (Sem espaços ou acentos e separado por traço)");
+                        return false;
+                }
+
+
+
+                //return false;
 
             case ("processo"):
+                //Precisa receber o PID do novo processo
+
+
+
                 return false;
 
             case ("acesso"):
+                //Parametros: pid e a posição da memória
+
+
                 return false;
 
             default:
                 return true;
         }
     }
+
 
     public static void terminar(Terminal.Comando cmd){
 
@@ -123,6 +171,11 @@ public class Comandos {
 
     }
 
+    /**
+     * cria um novo ambiente de simulação de gerenciamento de memória
+     *
+     * @param cmd
+     */
     public static void configurar(Terminal.Comando cmd){
 
     }
@@ -135,5 +188,14 @@ public class Comandos {
 
     }
 
-
+    public enum TiposComandos {
+        TERMINAR
+        ,RELATORIO
+        ,AJUDA
+        ,CONFIGURAR
+        ,PROCESSO
+        ,ACESSO
+        ;
+    }
+    MetodosAuxiliares ma = new MetodosAuxiliares();
 }

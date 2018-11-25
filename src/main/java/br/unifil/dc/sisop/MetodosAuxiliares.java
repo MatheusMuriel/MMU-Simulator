@@ -1,5 +1,7 @@
 package br.unifil.dc.sisop;
 
+import java.util.Optional;
+
 public class MetodosAuxiliares {
 
 
@@ -24,5 +26,16 @@ public class MetodosAuxiliares {
      */
     public String removePrimeiraPalavra(String I) {
         return (I.contains(" ")) ? I.substring(I.indexOf(" ") + 1) : "";
+    }
+
+    /**
+     * Metodo que pega o numero de um String
+     * Se capturar um erro Null, não tem um numero nessa string ou a string é vazia
+     * @param I entrada
+     * @return Optional contendo o numero se ele tiver sucesso, caso contrario um optional vazio
+     */
+    public Optional<Integer> pegaNumero(String I){
+            Integer numero = Integer.getInteger(I);
+            return Optional.ofNullable(numero);
     }
 }

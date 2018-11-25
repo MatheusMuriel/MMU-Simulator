@@ -96,7 +96,7 @@ class Terminal {
             return this.descAjuda;
         }
 
-        protected List<String> getParametros() {
+        protected ArrayList<String> getParametros() {
             return parametros;
         }
 
