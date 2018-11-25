@@ -38,21 +38,34 @@ class Terminal {
 
         comando = new Comando(nome, parametros);
 
-        processaComando(comando);
+        System.out.println((processaComando(comando) != -1) ? "Comando ok." : "Comando está errado.");
 
     }
 
+    /**
+     * Metodo que processa um comando, vai chamando metodo por metodo
+     * de verificação e da um retorno negativo casso falhe.
+     * @param cmd comando a testar
+     * @return -1 se o comando falhar, e 0 se der certo.
+     */
     protected int processaComando(Comando cmd){
         Comandos comandos = new Comandos();
 
-         //Os ifs abaixo estão verificando NEGAÇÃO ("!expreção") por isso retornam -1
+         //Os ifs abaixo estão verificando NEGAÇÃO ("!expressão") por isso retornam -1
         if (!comandos.verificaExistencia(cmd)) return -1;
         if (!comandos.verificaImplementacao(cmd)) return -1;
         if (!comandos.verificaParametros(cmd)) return -1;
 
+        //Se não falhar em nenhum acima, chama o comando
+        comandos.chamaComando(cmd);
+
         return 0;
     }
 
+    /**
+     * TAD que representa entidade Coamando.
+     * Contem nome, lista de parametros, e etc...
+     */
     public static class Comando {
         public String nome;
         String descAjuda;

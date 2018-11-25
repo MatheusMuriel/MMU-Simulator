@@ -75,15 +75,21 @@ public class Comandos {
      * @param comando
      */
     public void chamaComando(Terminal.Comando comando) {
-        
+        System.out.println("Metodo Comandos.chama comando ainda não implementado.");
 
     }
 
+    /**
+     * Metodo que verifica o parametro dos metodos.
+     * @param cmd Comando a ser verificado.
+     * @return Verdadeiro se estiver certo
+     * e false se estiver errado. Printando um motivo de erro também.
+     */
     public boolean verificaParametros(Terminal.Comando cmd) {
         System.out.println("Metodo Comandos.verificaParametro em implementação");
         switch (cmd.nome){
             case ("terminar"):
-                return (cmd.getParametros().size() == 0);
+                return false;
 
             case ("relatorio"):
                 return false;
@@ -105,7 +111,29 @@ public class Comandos {
         }
     }
 
+    public static void terminar(Terminal.Comando cmd){
 
+    }
+
+    public static void relatorio(Terminal.Comando cmd){
+
+    }
+
+    public static void ajuda(Terminal.Comando cmd){
+
+    }
+
+    public static void configurar(Terminal.Comando cmd){
+
+    }
+
+    public static void processo(Terminal.Comando cmd){
+
+    }
+
+    public static void acesso(Terminal.Comando cmd){
+
+    }
 
 
 }
