@@ -16,7 +16,7 @@
     </SUITE>
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="197" />
+    <option name="myElementSize" value="218" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-558344722">
@@ -56,6 +56,7 @@
     <session id="-684982097">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.9" value="1" />
@@ -65,12 +66,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="6" />
-          <entry key="java" value="5085" />
+          <entry key="java" value="6183" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5085" />
+          <entry key="JAVA" value="6183" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
@@ -102,10 +103,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="510">
+              <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#processaEntrada#0;class#Terminal#0" />
+                <element signature="e#662#708#0" />
+                <element signature="docComment;method#processaComando#0;class#Terminal#0" />
+                <element signature="docComment;class#Comando#0;class#Terminal#0" />
+                <element signature="class#Comando#0;class#Terminal#0" />
+                <element signature="docComment;method#Comando#0;class#Comando#0;class#Terminal#0" />
+                <element signature="docComment;method#Comando#1;class#Comando#0;class#Terminal#0" />
+                <element signature="method#Comando#1;class#Comando#0;class#Terminal#0" />
               </folding>
             </state>
           </provider>
@@ -114,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="147" column="40" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+            <state relative-caret-position="623">
+              <caret line="179" selection-start-line="179" selection-end-line="179" />
             </state>
           </provider>
         </entry>
@@ -123,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="623">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -148,8 +156,8 @@
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comando.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/unifil/dc/sisop/AppTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java" />
       </list>
     </option>
@@ -222,7 +230,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542811890442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543259767354" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -285,7 +293,7 @@
       <option name="presentableId" value="Default" />
       <updated>1542801090086</updated>
       <workItem from="1542801107663" duration="6837000" />
-      <workItem from="1543236789335" duration="4530000" />
+      <workItem from="1543236789335" duration="8196000" />
     </task>
     <servers />
   </component>
@@ -295,12 +303,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11367000" />
+    <option name="totallyTimeSpent" value="15033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20843521" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20843521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -310,7 +318,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33183858" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33183858" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40134528" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -319,7 +327,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32911393" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3295964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -342,28 +350,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java</url>
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="e.cause" />
@@ -429,27 +415,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="623">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="510">
+          <caret line="59" column="44" selection-start-line="59" selection-start-column="44" selection-end-line="59" selection-end-column="44" />
+          <folding>
+            <element signature="method#processaEntrada#0;class#Terminal#0" />
+            <element signature="e#662#708#0" />
+            <element signature="docComment;method#processaComando#0;class#Terminal#0" />
+            <element signature="docComment;class#Comando#0;class#Terminal#0" />
+            <element signature="class#Comando#0;class#Terminal#0" />
+            <element signature="docComment;method#Comando#0;class#Comando#0;class#Terminal#0" />
+            <element signature="docComment;method#Comando#1;class#Comando#0;class#Terminal#0" />
+            <element signature="method#Comando#1;class#Comando#0;class#Terminal#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="147" column="40" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+        <state relative-caret-position="623">
+          <caret line="179" selection-start-line="179" selection-end-line="179" />
         </state>
       </provider>
     </entry>

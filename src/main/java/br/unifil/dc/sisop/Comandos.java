@@ -4,6 +4,9 @@ import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import static br.unifil.dc.sisop.Terminal.Simulacao.memoriaInstalada;
+import static br.unifil.dc.sisop.Terminal.Simulacao.tipoSimulacao;
+
 public class Comandos {
 
 
@@ -51,13 +54,13 @@ public class Comandos {
 
         switch (cmd.nome){
             case ("terminar"):
-                return true;
+                return false;
 
             case ("relatorio"):
-                return true;
+                return false;
 
             case ("ajuda"):
-                return true;
+                return false;
 
             case ("configurar"):
                 return true;
@@ -66,7 +69,7 @@ public class Comandos {
                 return true;
 
             case ("acesso"):
-                return true;
+                return false;
             default:
                 System.out.println("Comando não implementado.");
                 return false;
@@ -123,42 +126,59 @@ public class Comandos {
                                 //Optional<Integer> op = ma.pegaNumero(parametros.get(3));
                                 if ((t = ma.pegaNumero(parametros.get(4))) == -1) {
                                     System.err.println("Quantidade de Bits do bitmap invalida ou inexistente.");
-                                    //CHEGADA FINAL
                                     return false;
                                 } else {
                                     //CHEGADA FINAL
-                                    System.out.println("bitmap com tamanho " + t);
+                                    comando = TiposComandos.RegistradoresBitmap;
+                                    //System.out.println("bitmap com tamanho " + t);
+                                    tipoSimulacao = comando;
                                     return true;
                                 }
                             case ("lista-encadeada"):
-
-                                System.out.println("Lista encadeada");
+                                comando = TiposComandos.RegistradoresLista;
+                                //System.out.println("Lista encadeada");
+                                tipoSimulacao = comando;
                                 return true;
-                                //CHEGADA FINAL
                         }
-
                     case ("memoria-virtual"):
                         int qBitsPosMSB;
 
                         if ((qBitsPosMSB = ma.pegaNumero(parametros.get(3))) == -1){
                             System.err.println("Quantidade de Bits invalida ou inexistente.");
                             System.err.println("Digite a quantidade de bits a partir do MSB para a indexação de páginas de um processo.");
-                            //CHEGADA FINAL
+
                             return false;
                         }else {
-                            System.out.println("memoria virtual com quantidade de bits " + qBitsPosMSB);
-                            //CHEGADA FINAL
+                            comando = TiposComandos.Memoria;
+                            //System.out.println("memoria virtual com quantidade de bits " + qBitsPosMSB);
+                            tipoSimulacao = comando;
                             return true;
                         }
                     default:
                         System.err.println("Especifique o tipo de MMU (Sem espaços ou acentos e separado por traço)");
-                        //CHEGADA FINAL
                         return false;
                 }
+
+                //Fazer a checagem de logica entre os parametros aqui
+
             case ("processo"):
                 //Precisa receber o PID do novo processo
+                int pid = ma.pegaNumero(parametros.get(0));
+                if (pid <= -1){
+                    System.err.println("Digite um numero PID valido.");
+                    return false;
+                }
 
+                if(tipoSimulacao == TiposComandos.RegistradoresBitmap
+                        || tipoSimulacao == TiposComandos.RegistradoresLista){
+                    int tamMemProc = ma.pegaNumero(parametros.get(1));
+                    if (tamMemProc <= -1) System.err.println("É precisso indicar o tamanho da memoria do novo processo.");
+                    if (tamMemProc > memoriaInstalada) System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
 
+                    //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
+                    //Ler no PDF
+
+                }
 
                 return false;
 
@@ -207,7 +227,11 @@ public class Comandos {
         TERMINAR
         ,RELATORIO
         ,AJUDA
-        ,CONFIGURAR
+        ,Configurar
+        ,Memoria
+        ,RegistradoresBitmap
+        ,RegistradoresLista
+        ,nenhum
         ,PROCESSO
         ,ACESSO
         ;

@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Terminal {
+public class Terminal {
     MetodosAuxiliares ma = new MetodosAuxiliares();
+    public static Simulacao simulacao;
+
 
 
     Terminal() {
+        simulacao = new Simulacao();
         Scanner teclado = new Scanner(System.in);
         System.out.print("> ");
 
@@ -101,4 +104,12 @@ class Terminal {
         }
 
     }
+
+    public static class Simulacao{
+        public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
+        public static int memoriaInstalada;
+
+    }
+
+
 }

@@ -41,6 +41,10 @@ public class MetodosAuxiliares {
             return numero;
         }catch (NullPointerException e){
             return -1;
+        }catch (IndexOutOfBoundsException e){
+            return -2;
+        } catch (NumberFormatException e){
+            return -3;
         }
     }
 }
