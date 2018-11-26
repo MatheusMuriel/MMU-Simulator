@@ -106,40 +106,55 @@ public class Comandos {
                 return false;
 
             case ("configurar"):
-                Integer quantBits;
-
-                Optional<Integer> o = ma.pegaNumero(parametros.get(0));
-                if (o.isPresent()) {
-                    quantBits = o.get();
-                } else {
+                int quantBits;
+                TiposComandos comando;
+                if ((quantBits = ma.pegaNumero(parametros.get(0))) == -1) {
                     System.err.println("Quantidade de Bits invalida ou inexistente.");
                     return false;
                 }
 
-                switch (parametros.get(1)){
+                //Capturar a entrada de Inteiro e haxadecimal aqui
+
+                switch (parametros.get(2)){
                     case ("registradores-base-e-limite"):
-                        switch (parametros.get(2)){
+                        switch (parametros.get(3)){
                             case ("bitmap"):
-                                Integer t;
-                                Optional op = ma.pegaNumero(parametros.get(3));
-                                //op.ifPresent(c -> t = o.get());
-
-
-
+                                int t; //Tamanho de cada pedaço de alocação de memoria.
+                                //Optional<Integer> op = ma.pegaNumero(parametros.get(3));
+                                if ((t = ma.pegaNumero(parametros.get(4))) == -1) {
+                                    System.err.println("Quantidade de Bits do bitmap invalida ou inexistente.");
+                                    //CHEGADA FINAL
+                                    return false;
+                                } else {
+                                    //CHEGADA FINAL
+                                    System.out.println("bitmap com tamanho " + t);
+                                    return true;
+                                }
                             case ("lista-encadeada"):
+
+                                System.out.println("Lista encadeada");
+                                return true;
+                                //CHEGADA FINAL
                         }
 
                     case ("memoria-virtual"):
+                        int qBitsPosMSB;
 
+                        if ((qBitsPosMSB = ma.pegaNumero(parametros.get(3))) == -1){
+                            System.err.println("Quantidade de Bits invalida ou inexistente.");
+                            System.err.println("Digite a quantidade de bits a partir do MSB para a indexação de páginas de um processo.");
+                            //CHEGADA FINAL
+                            return false;
+                        }else {
+                            System.out.println("memoria virtual com quantidade de bits " + qBitsPosMSB);
+                            //CHEGADA FINAL
+                            return true;
+                        }
                     default:
                         System.err.println("Especifique o tipo de MMU (Sem espaços ou acentos e separado por traço)");
+                        //CHEGADA FINAL
                         return false;
                 }
-
-
-
-                //return false;
-
             case ("processo"):
                 //Precisa receber o PID do novo processo
 

@@ -34,8 +34,13 @@ public class MetodosAuxiliares {
      * @param I entrada
      * @return Optional contendo o numero se ele tiver sucesso, caso contrario um optional vazio
      */
-    public Optional<Integer> pegaNumero(String I){
-            Integer numero = Integer.getInteger(I);
-            return Optional.ofNullable(numero);
+    ////refazer javadoc
+    public int pegaNumero(String I){
+        try{
+            int numero = Integer.parseInt(I);
+            return numero;
+        }catch (NullPointerException e){
+            return -1;
+        }
     }
 }
