@@ -111,26 +111,11 @@ public class Comandos {
 
             case ("configurar"):
                 tamanhoDaMemoria();
+                //Definir aqui a variavem Terminal.Simulacao.Memoriainstalada
                 return true;
 
             case ("processo"):
-                //Precisa receber o PID do novo processo
-                int pid = ma.pegaNumero(parametros.get(0));
-                if (pid <= -1){
-                    System.err.println("Digite um numero PID valido.");
-                    return false;
-                }
 
-                if(tipoSimulacao == TiposComandos.RegistradoresBitmap
-                        || tipoSimulacao == TiposComandos.RegistradoresLista){
-                    int tamMemProc = ma.pegaNumero(parametros.get(1));
-                    if (tamMemProc <= -1) System.err.println("É precisso indicar o tamanho da memoria do novo processo.");
-                    if (tamMemProc > memoriaInstalada) System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
-
-                    //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
-                    //Ler no PDF
-
-                }
 
                 return false;
 
@@ -222,6 +207,13 @@ public class Comandos {
     }
 
     /*Processamento da entrada com apenas o comando configurar (Sem parametros) */
+
+    /**
+     *
+     * numBits      = Quantidade de bits do espaço de memória.
+     * MemoriaReal  = Memoria fisica instalada (Armazenada em int).
+     * @return
+     */
     private boolean tamanhoDaMemoria() {
         int memoriaReal;
         String procurarPor = "0x";
@@ -242,6 +234,8 @@ public class Comandos {
 
 
         verificarValidadeDaMemoria(numBits, memoriaReal);
+
+        //*** Verificar aqui essas saidas
         System.out.println();
         System.out.println(numBits);
         System.out.println(memoriaFisica);
@@ -250,6 +244,11 @@ public class Comandos {
         return false;
     }
 
+    /**
+     * Metodo que verifica a coerencia entre os parametros da memoria
+     * @param numBits
+     * @param memoriaReal
+     */
     private void verificarValidadeDaMemoria(int numBits, int memoriaReal) {
         int quantidadeQuadros = 1;
         int contador = 1;
@@ -259,12 +258,19 @@ public class Comandos {
         }
 
         if(quantidadeQuadros == memoriaReal){
+            //Define variavel global da simulação 
+            memoriaInstalada = memoriaReal;
             criaMemoria(numBits, contador);
         }else{
             System.out.println("entrada invalida! você precisa digitar uma memoria valida");
         }
     }
 
+    /**
+     * Metodo que de fato cria uma nova simulação
+     * @param numBits
+     * @param contador Quantidade de quadros?
+     */
     private void criaMemoria(int numBits, int contador) {
         int[] arryMemoria = new int[contador];
         int quantBits = numBits;
@@ -273,6 +279,7 @@ public class Comandos {
             numBits = numBits + quantBits;
             System.out.print(arryMemoria[i]+ ",");
         }
+
     }
 
     private int converteHex(String memoriaFisica) {
@@ -288,9 +295,37 @@ public class Comandos {
     }
     /* */
 
+    /**
+     * Metodo que faz a checagem dos parametros do comando processo
+     *
+     * Se a simulação atual (Terminal.tipoSimulação) for de algum tipo que utilize swapping
+     *
+     * @param cmd Comando de entrada
+     * @return
+     */
+    public static boolean processo(Terminal.Comando cmd){
+        ArrayList<String> parametros = cmd.getParametros();
 
-    public static void processo(Terminal.Comando cmd){
+        //Precisa receber o PID do novo processo
+        int pid = ma.pegaNumero(parametros.get(0));
+        if (pid <= -1){
+            System.err.println("Digite um numero PID valido.");
+            return false;
+        }
 
+        //Verifica se a simuação atual é do tipo Swapping
+        if(tipoSimulacao == TiposComandos.RegistradoresBitmap
+                || tipoSimulacao == TiposComandos.RegistradoresLista){
+
+            //Tamanho de memoria do novo processo
+            int tamMemProc = ma.pegaNumero(parametros.get(1));
+
+            if (tamMemProc <= -1) System.err.println("É precisso indicar o tamanho da memoria do novo processo.");
+            if (tamMemProc > memoriaInstalada) System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
+
+            //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
+            //Ler no PDF
+        }
     }
 
     public static void acesso(Terminal.Comando cmd){
@@ -310,5 +345,5 @@ public class Comandos {
         ,ACESSO
         ;
     }
-    MetodosAuxiliares ma = new MetodosAuxiliares();
+    static MetodosAuxiliares ma = new MetodosAuxiliares();
 }
