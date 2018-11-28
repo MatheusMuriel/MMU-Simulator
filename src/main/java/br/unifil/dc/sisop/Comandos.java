@@ -1,8 +1,6 @@
 package br.unifil.dc.sisop;
 
-import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Scanner;
 
 import static br.unifil.dc.sisop.Terminal.Simulacao.memoriaInstalada;
@@ -110,7 +108,8 @@ public class Comandos {
                 return false;
 
             case ("configurar"):
-                tamanhoDaMemoria();
+                //tamanhoDaMemoria();
+                configurar(cmd, cmd.getParametros());
                 //Definir aqui a variavem Terminal.Simulacao.Memoriainstalada
                 return true;
 
@@ -159,6 +158,7 @@ public class Comandos {
         }
 
         //Capturar a entrada de Inteiro e haxadecimal aqui
+        tamanhoDaMemoria(parametros.get(1), quantBits);
 
         switch (parametros.get(2)){
             case ("registradores-base-e-limite"):
@@ -181,6 +181,9 @@ public class Comandos {
                         //System.out.println("Lista encadeada");
                         tipoSimulacao = comando;
                         return true;
+
+                    default:
+                            //fazer
                 }
             case ("memoria-virtual"):
                 int qBitsPosMSB;
@@ -191,7 +194,7 @@ public class Comandos {
 
                     return false;
                 }else {
-                    comando = TiposComandos.Memoria;
+                    comando = TiposComandos.MemoriaVirtual;
                     //System.out.println("memoria virtual com quantidade de bits " + qBitsPosMSB);
                     tipoSimulacao = comando;
                     return true;
@@ -202,7 +205,8 @@ public class Comandos {
         }
 
         //Fazer a checagem de logica entre os parametros aqui
-
+        //verificarValidadeDaMemoria(quantBits, memoriaInstalada);
+        //Comandos.criaMemoria(quantBits, );
 
     }
 
@@ -211,20 +215,20 @@ public class Comandos {
     /**
      *
      * numBits      = Quantidade de bits do espaço de memória.
-     * MemoriaReal  = Memoria fisica instalada (Armazenada em int).
+     * MemoriaReal  = MemoriaVirtual fisica instalada (Armazenada em int).
      * @return
      */
-    private boolean tamanhoDaMemoria() {
-        int memoriaReal;
+    private static void tamanhoDaMemoria(String entrada, int numBits) {
+        int memoriaReal; //EM K Palavras
         String procurarPor = "0x";
-        Scanner bits = new Scanner(System.in);
-        int numBits;
-        System.out.println("Digite os bits da memoria");
-        numBits = bits.nextInt();
-        Scanner entradaMemoriaFisica = new Scanner(System.in);
+        //Scanner bits = new Scanner(System.in);
+        //int numBits;
+        //System.out.println("Digite os bits da memoria");
+        //numBits = bits.nextInt();
+        //Scanner entradaMemoriaFisica = new Scanner(System.in);
         String memoriaFisica;
-        System.out.println("Digite o tamanho da memoria fisica");
-        memoriaFisica = entradaMemoriaFisica.nextLine();
+        //System.out.println("Digite o tamanho da memoria fisica");
+        memoriaFisica = entrada;
         if(memoriaFisica.contains(procurarPor)){
             String novaString = memoriaFisica.replace("x", "");
             memoriaReal = converteHex(novaString);
@@ -232,7 +236,7 @@ public class Comandos {
             memoriaReal = Integer.parseInt(memoriaFisica);
         }
 
-
+        memoriaInstalada = memoriaReal;
         verificarValidadeDaMemoria(numBits, memoriaReal);
 
         //*** Verificar aqui essas saidas
@@ -241,7 +245,7 @@ public class Comandos {
         System.out.println(memoriaFisica);
         System.out.println(memoriaReal);
 
-        return false;
+        //return false;
     }
 
     /**
@@ -249,9 +253,9 @@ public class Comandos {
      * @param numBits
      * @param memoriaReal
      */
-    private void verificarValidadeDaMemoria(int numBits, int memoriaReal) {
+    private static void verificarValidadeDaMemoria(int numBits, int memoriaReal) {
         int quantidadeQuadros = 1;
-        int contador = 1;
+        int contador = 0;
         while (quantidadeQuadros < memoriaReal){
             quantidadeQuadros = quantidadeQuadros*2;
             contador++;
@@ -271,7 +275,19 @@ public class Comandos {
      * @param numBits
      * @param contador Quantidade de quadros?
      */
-    private void criaMemoria(int numBits, int contador) {
+    private static void criaMemoria(int numBits, int contador) {
+
+
+
+
+        if (tipoSimulacao.equals(TiposComandos.RegistradoresBitmap)) System.out.println("BITMAP");
+        if (tipoSimulacao.equals(TiposComandos.RegistradoresLista)) System.out.println("LISTA");
+        if (tipoSimulacao.equals(TiposComandos.MemoriaVirtual)) System.out.println("MEMORIA");
+
+
+
+
+
         int[] arryMemoria = new int[contador];
         int quantBits = numBits;
         for (int i = 0; i < arryMemoria.length-1; i++){
@@ -282,7 +298,7 @@ public class Comandos {
 
     }
 
-    private int converteHex(String memoriaFisica) {
+    private static int converteHex(String memoriaFisica) {
         String digits = "0123456789ABCDEF";
         memoriaFisica = memoriaFisica.toUpperCase();
         int val = 0;
@@ -326,6 +342,8 @@ public class Comandos {
             //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
             //Ler no PDF
         }
+
+        return false;
     }
 
     public static void acesso(Terminal.Comando cmd){
@@ -333,17 +351,11 @@ public class Comandos {
     }
 
     public enum TiposComandos {
-        TERMINAR
-        ,RELATORIO
-        ,AJUDA
-        ,Configurar
-        ,Memoria
+
+        MemoriaVirtual
         ,RegistradoresBitmap
         ,RegistradoresLista
-        ,nenhum
-        ,PROCESSO
-        ,ACESSO
-        ;
+        ,nenhum;
     }
     static MetodosAuxiliares ma = new MetodosAuxiliares();
 }
