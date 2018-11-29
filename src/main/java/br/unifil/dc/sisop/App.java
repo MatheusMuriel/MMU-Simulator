@@ -10,9 +10,9 @@ public class App
     {
         System.out.println( "Hello World!" );
         System.out.println("Vamos para o terminal :D");
-
+        Terminal terminal = new Terminal();
         while (true){
-            Terminal terminal = new Terminal();
+            terminal.pegaEntrada();
         }
 
 

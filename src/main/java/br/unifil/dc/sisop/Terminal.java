@@ -1,6 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,10 @@ public class Terminal {
 
     Terminal() {
         simulacao = new Simulacao();
+
+    }
+
+    public void pegaEntrada(){
         Scanner teclado = new Scanner(System.in);
         System.out.print("> ");
 
@@ -47,7 +52,7 @@ public class Terminal {
         comando = new Comando(nome, parametros);
 
         System.out.println((processaComando(comando) != -1) ? "Comando ok." : "Comando está errado.");
-
+        System.out.println("Proximo comando.");
     }
 
     /**
@@ -113,7 +118,24 @@ public class Terminal {
     public static class Simulacao{
         public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
         public static int memoriaInstalada;
+        public static int[] bitmap;
+        public static LinkedList<No> listaEncadeada;
 
+
+
+        public static Comandos.TiposComandos getTipoSimulacao() {
+            return tipoSimulacao;
+        }
+
+        public static int getMemoriaInstalada() {
+            return memoriaInstalada;
+        }
+
+        public class No {
+            int inicio;
+            int fim;
+            int tamanho;
+        }
     }
 
 

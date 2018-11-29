@@ -1,6 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author Matheus Muriel
@@ -47,14 +48,23 @@ public class Configurar extends Comandos{
         }
 
         if ( !( verificaEntradaQBEM(parametros) ) ) return false;
+
         if ( !( verificaEntradaQMFI(parametros) ) ) return false;
+        Terminal.Simulacao.memoriaInstalada = quantMemoriaFisicaInstalada;
+
         if ( !( verificaEntradaTM(parametros) ) )   return false;
+        Terminal.Simulacao.tipoSimulacao = tipoDeMemoria;
+
         if ( !( verificaLogica(parametros) ) )   return false;
+
+        if ( !( criaMemoria() )) return false;
 
 
 
         return false;
     }
+
+
 
     private boolean verificaLogica(ArrayList<String> parametros) {
         //Ver com o Manhani
@@ -179,6 +189,32 @@ public class Configurar extends Comandos{
         }
     }
 
+    private boolean criaMemoria() {
+
+        if (tipoDeMemoria.equals(TiposComandos.RegistradoresBitmap)){
+            int granulacao;
+
+            granulacao = 1000;
+
+            Terminal.simulacao.bitmap = new int[granulacao];
+            return true;
+        }
+
+        if (tipoDeMemoria.equals(TiposComandos.RegistradoresLista)){
+            Terminal.simulacao.listaEncadeada = new LinkedList<>();
+            return true;
+        }
+
+        if (tipoDeMemoria.equals(TiposComandos.MemoriaVirtual)){
+
+            //????
+
+            return false;
+        }
+
+        System.out.println("CriaMemoria não achou o tipo.");
+        return false;
+    }
 
     /**
      * @Manhani

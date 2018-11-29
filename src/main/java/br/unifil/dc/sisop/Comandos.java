@@ -118,6 +118,8 @@ public class Comandos {
                 return true;
 
             case ("processo"):
+                Processo obProcesso = new Processo();
+                obProcesso.verificaComando(cmd.getParametros());
 
 
                 return false;
