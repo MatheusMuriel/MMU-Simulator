@@ -15,9 +15,8 @@ public class Terminal {
         Scanner teclado = new Scanner(System.in);
         System.out.print("> ");
 
-
         String entrada = teclado.nextLine();
-        System.out.println(entrada);
+        //System.out.println(entrada);
         processaEntrada(entrada);
     }
 
@@ -31,13 +30,19 @@ public class Terminal {
         //entrada = ma.removePrimeiraPalavra(entrada);
         //entrada = entrada.substring(entrada.indexOf(" ") + 1);
 
+        entrada = entrada.toUpperCase();
+        entrada = ma.trataTipoMMU(entrada);
+
         //Pega os parametros
         while(entrada.length() > 0){
+
+
 
             String aux = ma.primeiraPalavra(entrada);
             entrada = ma.removePrimeiraPalavra(entrada);
             parametros.add(aux);
         }
+
 
         comando = new Comando(nome, parametros);
 
@@ -60,7 +65,7 @@ public class Terminal {
         if (!comandos.verificaParametros(cmd)) return -1;
 
         //Se não falhar em nenhum acima, chama o comando
-        comandos.chamaComando(cmd);
+
 
         return 0;
     }

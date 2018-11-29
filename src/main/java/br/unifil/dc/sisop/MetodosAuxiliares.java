@@ -1,5 +1,6 @@
 package br.unifil.dc.sisop;
 
+import java.text.Normalizer;
 import java.util.Optional;
 
 public class MetodosAuxiliares {
@@ -46,5 +47,26 @@ public class MetodosAuxiliares {
         } catch (NumberFormatException e){
             return -3;
         }
+    }
+
+    public String trataTipoMMU(String I) {
+
+        I = I.replaceAll("(Á|Â|À|Ã|Ä)","A");
+        I = I.replaceAll("(É|È|Ë|Ê)","E");
+        I = I.replaceAll("(Í|Ì|Î|Ï)","I");
+        I = I.replaceAll("(Ó|Ò|Ô|Õ|Ö)","O");
+        I = I.replaceAll("(Ú|Ù|Û|Ü)","U");
+
+        I = I.replaceAll("((REGISTRADOR)(ES)*( )*(BASE)( )*(E)*( )*(LIMITE))", "REGISTRADORES-BASE-LIMITE");
+        I = I.replaceAll("((MEMORIA)( )*(VIRTUAL))", "MEMORIA-VIRTUAL");
+        I = I.replaceAll("((BIT)( |-)*(MAP))", "BITMAP");
+        I = I.replaceAll(" {2,}", " ");
+        I = I.replaceAll("((LISTA)( |-)*(ENCADEADA))", "LISTA-ENCADEADA");
+
+        return I;
+    }
+
+    public boolean validaNumerico(String I){
+        return I.matches("[0-9]+");
     }
 }

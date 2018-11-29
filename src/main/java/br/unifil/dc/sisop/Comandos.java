@@ -93,7 +93,7 @@ public class Comandos {
      * e false se estiver errado. Printando um motivo de erro também.
      */
     public boolean verificaParametros(Terminal.Comando cmd) {
-        System.out.println("Metodo Comandos.verificaParametro em implementação");
+        //System.out.println("Metodo Comandos.verificaParametro em implementação");
         ArrayList<String> parametros = cmd.getParametros();
 
 
@@ -109,7 +109,11 @@ public class Comandos {
 
             case ("configurar"):
                 //tamanhoDaMemoria();
-                configurar(cmd, cmd.getParametros());
+                //configurar(cmd, cmd.getParametros());
+                Configurar obConfigurar = new Configurar();
+                obConfigurar.verificaComando(cmd.getParametros());
+
+
                 //Definir aqui a variavem Terminal.Simulacao.Memoriainstalada
                 return true;
 

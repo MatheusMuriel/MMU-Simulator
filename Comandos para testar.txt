@@ -1,0 +1,29 @@
+
+configurar:
+
+configurar 16 65536	registradores-base-e-limite	bitmap 4
+configurar 16 0x10000 registradores-base-e-limite lista-encadeada	
+configurar 16 65536 memoria-virtual 4	
+
+
+
+configurar 123 65536
+configurar 123 0xfff
+configurar 123 0xfff registradores-base-e-limite
+configurar 000
+configurar a
+configurar 0x12
+
+
+
+^0x
+
+dashduasu dasuh sdasuh sadhau dubah dhsau méè^^~~
+nome registradores base e limite registradores-base-limite registrador base limite
+
+
+registradores base e limite registradoresbaseelimite registradorbaseelimite registradorbaselimite registradores base limite registradoresbaseelimite registrador base elimite registrador basee limite registradorbase e limite registradorbasee limite registrador base e limite registrador base e limite
+
+
+((REGISTRADOR)(ES)*( )*(BASE)( )*(E)*( )*(LIMITE))
+((registrador)(es)*( )*(base)( )*(e)*( )*(limite))
