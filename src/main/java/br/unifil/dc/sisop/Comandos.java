@@ -131,11 +131,14 @@ public class Comandos {
 
 
     public static void terminar(Terminal.Comando cmd){
-
+        //Implemente o comando terminar, que termina espontaneamente o processo identificado por
+        //um pid, parâmetro obrigatório do comando. A memória, os registros e a tabela de processos
+        //deve ser totalmente limpa do processo terminado.
     }
 
     public static void relatorio(Terminal.Comando cmd){
-
+        //Implemente o comando relatorio, que faz com que o terminal exiba todo o estado de
+        //simulação, que inclui processos existentes e alocação de memória.
     }
 
     public static void ajuda(Terminal.Comando cmd){
@@ -277,12 +280,9 @@ public class Comandos {
      */
     private static void criaMemoria(int numBits, int contador) {
 
-
-
-
-        if (tipoSimulacao.equals(TiposComandos.RegistradoresBitmap)) System.out.println("BITMAP");
-        if (tipoSimulacao.equals(TiposComandos.RegistradoresLista)) System.out.println("LISTA");
-        if (tipoSimulacao.equals(TiposComandos.MemoriaVirtual)) System.out.println("MEMORIA");
+        if (tipoSimulacao == TiposComandos.RegistradoresBitmap) System.out.println("BITMAP");
+        if (tipoSimulacao == TiposComandos.RegistradoresLista) System.out.println("LISTA");
+        if (tipoSimulacao == TiposComandos.MemoriaVirtual) System.out.println("MEMORIA");
 
 
 
@@ -332,6 +332,10 @@ public class Comandos {
         //Verifica se a simuação atual é do tipo Swapping
         if(tipoSimulacao == TiposComandos.RegistradoresBitmap
                 || tipoSimulacao == TiposComandos.RegistradoresLista){
+            System.out.println("Processo Swapping");
+
+
+
 
             //Tamanho de memoria do novo processo
             int tamMemProc = ma.pegaNumero(parametros.get(1));
@@ -341,12 +345,34 @@ public class Comandos {
 
             //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
             //Ler no PDF
+        }else if (tipoSimulacao == TiposComandos.MemoriaVirtual){
+            System.out.println("Memoria Virtual processo");
+
+
+        }else{
+            System.err.println("Tipo de memoria não reconhecido.");
+            return false;
         }
 
         return false;
     }
 
     public static void acesso(Terminal.Comando cmd){
+
+        if (tipoSimulacao == TiposComandos.RegistradoresBitmap
+                || tipoSimulacao == TiposComandos.RegistradoresLista){
+            //(a) Caso esteja-se simulando o swapping, verificar se o acesso foi ilegal, e em caso afirmativo,
+            //o processo é automaticamente encerrado, e o terminal avisa o ocorrido ao usuário.
+            //(b) Ainda em caso de swapping, se o processo estiver no disco, o sistema recusa o comando
+            //e gera uma mensagem de erro para o usuário.
+        }
+
+        if (tipoSimulacao == TiposComandos.MemoriaVirtual){
+            //(c) Em caso de memória virtual, se o acesso causar uma falha de página, o sistema deverá
+            //informar os detalhes para o usuário: página acessada que causou falha, quadro liberado
+            //e onde consequentemente a página foi posicionada.
+        }
+
 
     }
 
