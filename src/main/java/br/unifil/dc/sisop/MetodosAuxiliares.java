@@ -47,4 +47,10 @@ public class MetodosAuxiliares {
             return -3;
         }
     }
+
+    public int pegaHexa(String inputPosicao) {
+        System.out.println("Implementar Pegahexa");
+
+        return 0;
+    }
 }

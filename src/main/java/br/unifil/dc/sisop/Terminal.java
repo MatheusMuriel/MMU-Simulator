@@ -108,7 +108,40 @@ public class Terminal {
     public static class Simulacao{
         public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
         public static int memoriaInstalada;
+        public ArrayList<NoDePaginas> listaPaginas;
 
+        public static Comandos.TiposComandos getTipoSimulacao() {
+            return tipoSimulacao;
+        }
+
+        public static int getMemoriaInstalada() {
+            return memoriaInstalada;
+        }
+
+        public class NoDePaginas {
+            int numero;
+            int inicio;
+            int fim;
+            boolean mapeado;
+
+            int quandro;
+
+            public int getNumero() {
+                return numero;
+            }
+
+            public int getQuandro() {
+                return quandro;
+            }
+
+            public boolean isMapeado() {
+                return mapeado;
+            }
+
+            public void setMapeado(boolean mapeado) {
+                this.mapeado = mapeado;
+            }
+        }
     }
 
 
