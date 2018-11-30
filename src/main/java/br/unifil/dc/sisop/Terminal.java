@@ -119,10 +119,20 @@ public class Terminal {
         public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
         public static int memoriaInstalada;
         public ArrayList<NoDePaginas> listaPaginas;
-        public static int[] bitmap;
+        public int[] bitmap;
+
+
+
+        public int[] getBitmap() {
+            return bitmap;
+        }
+
         public static LinkedList<No> listaEncadeada;
 
 
+        public static LinkedList<No> getListaEncadeada() {
+            return listaEncadeada;
+        }
 
         public static Comandos.TiposComandos getTipoSimulacao() {
             return tipoSimulacao;
@@ -136,13 +146,6 @@ public class Terminal {
             int inicio;
             int fim;
             int tamanho;
-        }
-        public static Comandos.TiposComandos getTipoSimulacao() {
-            return tipoSimulacao;
-        }
-
-        public static int getMemoriaInstalada() {
-            return memoriaInstalada;
         }
 
         public class NoDePaginas {

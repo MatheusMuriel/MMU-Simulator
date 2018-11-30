@@ -116,7 +116,8 @@ public class Configurar extends Comandos{
                 return true;
             } else if(validadeHexa){
                 //É hexa (Diferente do brasil)
-                quantMemoriaFisicaInstalada = converteHex(quantMFI);
+                //quantMemoriaFisicaInstalada = converteHex(quantMFI);
+                quantMemoriaFisicaInstalada = ma.pegaHexa(quantMFI);
                 System.out.println("A memoria fisica instalada é " + quantMemoriaFisicaInstalada);
                 return true;
             } else {
@@ -215,28 +216,5 @@ public class Configurar extends Comandos{
         System.out.println("CriaMemoria não achou o tipo.");
         return false;
     }
-
-    /**
-     * @Manhani
-     * Metodo que converte um Hexadecimal para decimal
-     * @param I Input
-     * @return
-     */
-    private static int converteHex(String I) {
-        if (I.matches("^0[xX][0-9A-Fa-f]+$")){
-            //System.out.println("Hexa começa com 0x");
-            I = I.replaceFirst("^0[xX]", "0");
-        }
-        String digits = "0123456789ABCDEF";
-        I = I.toUpperCase();
-        int val = 0;
-        for (int i = 0; i < I.length(); i++) {
-            char c = I.charAt(i);
-            int d = digits.indexOf(c);
-            val = 16*val + d;
-        }
-        return val;
-    }
-
 
 }

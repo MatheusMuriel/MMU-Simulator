@@ -49,10 +49,26 @@ public class MetodosAuxiliares {
         }
     }
 
-    public int pegaHexa(String inputPosicao) {
-        System.out.println("Implementar Pegahexa");
-
-        return 0;
+    /**
+     * @Manhani
+     * Metodo que converte um Hexadecimal para decimal
+     * @param I Input
+     * @return
+     */
+    public int pegaHexa(String I) {
+        if (I.matches("^0[xX][0-9A-Fa-f]+$")){
+            //System.out.println("Hexa começa com 0x");
+            I = I.replaceFirst("^0[xX]", "0");
+        }
+        String digits = "0123456789ABCDEF";
+        I = I.toUpperCase();
+        int val = 0;
+        for (int i = 0; i < I.length(); i++) {
+            char c = I.charAt(i);
+            int d = digits.indexOf(c);
+            val = 16*val + d;
+        }
+        return val;
     }
 
     public String trataTipoMMU(String I) {
@@ -75,4 +91,28 @@ public class MetodosAuxiliares {
     public boolean validaNumerico(String I){
         return I.matches("[0-9]+");
     }
+
+    public boolean isValidadeDacimal(String I){
+        return I.matches("^[0-9]+$");
+    }
+    public boolean isValidadeHexa(String I){
+        return I.matches("^0[xX][0-9A-Fa-f]+$|^[0-9A-Fa-f]+$");
+    }
+
+    /**
+     *
+     * @param I
+     * @return 1 se for decimal, 2 se for hexa, -1 se não for nenhum dos 2
+     */
+    public int verificaBaseNumerica(String I){
+
+        boolean validadeDacimal = isValidadeDacimal(I);
+        boolean validadeHexa    = isValidadeHexa(I);
+
+        if (validadeDacimal)    return 1;
+        else if (validadeHexa)  return 2;
+        else                    return -1;
+
+    }
+
 }

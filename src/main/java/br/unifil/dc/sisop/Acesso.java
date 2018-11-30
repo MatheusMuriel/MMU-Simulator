@@ -16,12 +16,7 @@ public class Acesso extends Comandos {
         if ( !( validaEntrada(parametros) )) return false;
         if ( !( condsideraFatores(parametros) )) return false;
 
-        String a = parametros.get(0);
 
-        a.matches("((registrador)(es)*( )*(base)( )*(e)*( )*(limite))");
-        a.replaceAll("((registrador)(es)*( )*(base)( )*(e)*( )*(limite))", "REGISTRADOR-BASE-LIMITE");
-
-        a.replaceAll("(É|È|Ê|Ë)", "E");
 
 
         return true;
@@ -31,6 +26,9 @@ public class Acesso extends Comandos {
         TiposComandos simulacao = Terminal.simulacao.getTipoSimulacao();
         if (simulacao.equals(TiposComandos.RegistradoresBitmap) || simulacao.equals(TiposComandos.RegistradoresLista)){
 
+            boolean acessoIlegal = verificaAcessoIlegal();
+
+
             if (acessoIlegal){
                 ArrayList<String> parAux = new ArrayList<>();
                 parAux.add(Integer.toString(pid));
@@ -39,6 +37,7 @@ public class Acesso extends Comandos {
                 System.err.println("Acesso ilegal. O processo foi encerrado.");
                 return false;
             }
+            boolean estaEmDisco = verificaEmDisco();
             if (estaEmDisco){
                 System.err.println("O processo está em disco.");
                 return false;
@@ -47,13 +46,33 @@ public class Acesso extends Comandos {
             //Acesso efetivo
         }else if (simulacao.equals(TiposComandos.MemoriaVirtual)){
             int ocorido = acessaPagina(posicao);
-            if (falhaDePagina)
+            boolean falhaDePagina = verificaFalhaDePagina();
+            if (falhaDePagina){
+                System.err.println("Houve uma falha de pagina.");
+                return false;
+            }
 
 
         }
 
 
+        return false;
+    }
 
+    private boolean verificaFalhaDePagina() {
+        System.out.println("Implementar falha de pagina");
+        return false;
+    }
+
+    private boolean verificaEmDisco() {
+        System.out.println("Implementar verifica em disco");
+
+        return false;
+    }
+
+    private boolean verificaAcessoIlegal() {
+        System.out.println("Inplementar acesso Ilegal");
+        return false;
     }
 
     /**
@@ -65,7 +84,7 @@ public class Acesso extends Comandos {
     private int acessaPagina(int posicao) {
         ArrayList<Terminal.Simulacao.NoDePaginas> paginas = Terminal.simulacao.listaPaginas;
 
-        if (paginas.get(posicao).)
+
 
         return 0;
     }
