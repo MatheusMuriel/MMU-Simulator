@@ -1,6 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,12 +13,15 @@ public class Terminal {
 
     Terminal() {
         simulacao = new Simulacao();
+
+    }
+
+    public void pegaEntrada(){
         Scanner teclado = new Scanner(System.in);
         System.out.print("> ");
 
-
         String entrada = teclado.nextLine();
-        System.out.println(entrada);
+        //System.out.println(entrada);
         processaEntrada(entrada);
     }
 
@@ -31,18 +35,24 @@ public class Terminal {
         //entrada = ma.removePrimeiraPalavra(entrada);
         //entrada = entrada.substring(entrada.indexOf(" ") + 1);
 
+        entrada = entrada.toUpperCase();
+        entrada = ma.trataTipoMMU(entrada);
+
         //Pega os parametros
         while(entrada.length() > 0){
+
+
 
             String aux = ma.primeiraPalavra(entrada);
             entrada = ma.removePrimeiraPalavra(entrada);
             parametros.add(aux);
         }
 
+
         comando = new Comando(nome, parametros);
 
         System.out.println((processaComando(comando) != -1) ? "Comando ok." : "Comando está errado.");
-
+        System.out.println("Proximo comando.");
     }
 
     /**
@@ -60,7 +70,7 @@ public class Terminal {
         if (!comandos.verificaParametros(cmd)) return -1;
 
         //Se não falhar em nenhum acima, chama o comando
-        comandos.chamaComando(cmd);
+
 
         return 0;
     }
@@ -109,7 +119,24 @@ public class Terminal {
         public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
         public static int memoriaInstalada;
         public ArrayList<NoDePaginas> listaPaginas;
+        public static int[] bitmap;
+        public static LinkedList<No> listaEncadeada;
 
+
+
+        public static Comandos.TiposComandos getTipoSimulacao() {
+            return tipoSimulacao;
+        }
+
+        public static int getMemoriaInstalada() {
+            return memoriaInstalada;
+        }
+
+        public class No {
+            int inicio;
+            int fim;
+            int tamanho;
+        }
         public static Comandos.TiposComandos getTipoSimulacao() {
             return tipoSimulacao;
         }
