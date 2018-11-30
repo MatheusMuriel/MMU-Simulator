@@ -18,6 +18,39 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="218" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="215">
+                    <caret line="148" column="34" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="34" />
+                    <folding>
+                      <element signature="e#1543#1589#0" />
+                      <element signature="docComment;method#processaComando#0;class#Terminal#0" />
+                      <element signature="docComment;class#Comando#0;class#Terminal#0" />
+                      <element signature="class#Comando#0;class#Terminal#0" />
+                      <element signature="docComment;method#Comando#0;class#Comando#0;class#Terminal#0" />
+                      <element signature="docComment;method#Comando#1;class#Comando#0;class#Terminal#0" />
+                      <element signature="method#Comando#1;class#Comando#0;class#Terminal#0" />
+                      <element signature="class#No#0;class#Simulacao#0;class#Terminal#0" />
+                      <element signature="class#NoDePagina#0;class#Simulacao#0;class#Terminal#0" />
+                      <element signature="method#setMapeado#0;class#NoDePagina#0;class#Simulacao#0;class#Terminal#0" />
+                      <element signature="class#NoDeQuadro#0;class#Simulacao#0;class#Terminal#0" />
+                      <element signature="method#setMapeado#0;class#NoDeQuadro#0;class#Simulacao#0;class#Terminal#0" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-558344722">
       <usages-collector id="statistics.lifecycle.project">
@@ -56,7 +89,7 @@
     <session id="-684982097">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.57" value="1" />
@@ -70,25 +103,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="14" />
-          <entry key="java" value="14619" />
+          <entry key="java" value="20646" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14619" />
+          <entry key="JAVA" value="20646" />
           <entry key="PLAIN_TEXT" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="java" value="22" />
+          <entry key="java" value="30" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="30" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -99,36 +132,124 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Processo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="176" column="67" selection-start-line="176" selection-start-column="67" selection-end-line="176" selection-end-column="67" />
+            <state relative-caret-position="41">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
-                <element signature="method#Processo#0;class#Processo#0" />
-                <element signature="method#verificaComando#0;class#Processo#0" />
-                <element signature="method#avaliaSimulacao#0;class#Processo#0" />
+                <element signature="docComment;method#verificaEspacoBitmap#0;class#Processo#0" />
+                <element signature="method#ContaBloco#0;class#Processo#0" />
+                <element signature="method#swappingBitMap#0;class#Processo#0" />
+                <element signature="docComment;method#recSwappinBitmap#0;class#Processo#0" />
+                <element signature="method#recSwappinBitmap#0;class#Processo#0" />
                 <element signature="docComment;method#pincelCorredor#0;class#Processo#0" />
                 <element signature="method#pincelCorredor#0;class#Processo#0" />
-                <element signature="e#4837#4838#0" expanded="true" />
-                <element signature="e#4875#4876#0" expanded="true" />
-                <element signature="e#4926#4927#0" expanded="true" />
-                <element signature="e#4972#4973#0" expanded="true" />
-                <element signature="e#5006#5007#0" expanded="true" />
-                <element signature="e#5043#5044#0" expanded="true" />
-                <element signature="e#5088#5089#0" expanded="true" />
-                <element signature="e#5132#5133#0" expanded="true" />
-                <element signature="e#5163#5164#0" expanded="true" />
-                <element signature="e#5197#5198#0" expanded="true" />
-                <element signature="e#5236#5237#0" expanded="true" />
-                <element signature="e#5274#5275#0" expanded="true" />
+                <element signature="class#EspacoBitmap#0;class#Processo#0" />
+                <element signature="method#EspacoBitmap#0;class#EspacoBitmap#0;class#Processo#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="218" column="39" lean-forward="true" selection-start-line="218" selection-start-column="33" selection-end-line="218" selection-end-column="43" />
+              <folding>
+                <element signature="method#Acesso#0;class#Acesso#0" />
+                <element signature="method#verificaFalhaDePagina#0;class#Acesso#0" />
+                <element signature="method#posicionaPagina#0;class#Acesso#0" />
+                <element signature="method#verificaEmDisco#0;class#Acesso#0" />
+                <element signature="method#verificaAcessoIlegal#0;class#Acesso#0" />
+                <element signature="method#processoExiste#0;class#Acesso#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="7">
+              <caret line="71" column="18" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#pegaHexa#0;class#MetodosAuxiliares#0" />
+                <element signature="e#3051#3052#0" expanded="true" />
+                <element signature="e#3121#3122#0" expanded="true" />
+                <element signature="e#3522#3523#0" expanded="true" />
+                <element signature="e#3590#3591#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#verificaExistencia#0;class#Comandos#0" />
+                <element signature="method#verificaExistencia#0;class#Comandos#0" />
+                <element signature="docComment;method#verificaImplementacao#0;class#Comandos#0" />
+                <element signature="docComment;method#chamaComando#0;class#Comandos#0" />
+                <element signature="method#chamaComando#0;class#Comandos#0" />
+                <element signature="docComment;method#verificaParametros#0;class#Comandos#0" />
+                <element signature="e#2874#2895#0" />
+                <element signature="method#terminar#0;class#Comandos#0" />
+                <element signature="e#3622#3710#0" />
+                <element signature="method#relatorio#0;class#Comandos#0" />
+                <element signature="e#3941#4024#0" />
+                <element signature="method#ajuda#0;class#Comandos#0" />
+                <element signature="docComment;method#configurar#0;class#Comandos#0" />
+                <element signature="e#7043#7096#0" />
+                <element signature="docComment;method#tamanhoDaMemoria#0;class#Comandos#0" />
+                <element signature="e#7633#7673#0" />
+                <element signature="docComment;method#verificarValidadeDaMemoria#0;class#Comandos#0" />
+                <element signature="docComment;method#criaMemoria#0;class#Comandos#0" />
+                <element signature="method#converteHex#0;class#Comandos#0" />
+                <element signature="docComment;method#processo#0;class#Comandos#0" />
+                <element signature="e#11663#11739#0" />
+                <element signature="e#12242#12340#0" />
+                <element signature="e#12682#12772#0" />
+                <element signature="class#TiposComandos#0;class#Comandos#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Configurar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="148" column="82" selection-start-line="148" selection-start-column="82" selection-end-line="148" selection-end-column="82" />
+              <folding>
+                <element signature="docComment;class#Configurar#0" />
+                <element signature="method#Configurar#0;class#Configurar#0" />
+                <element signature="method#verificaLogica#0;class#Configurar#0" />
+                <element signature="method#verificaEntradaQBEM#0;class#Configurar#0" />
+                <element signature="method#verificaEntradaQMFI#0;class#Configurar#0" />
+                <element signature="e#3804#3834#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Relatorio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -147,6 +268,7 @@
     <findStrings>
       <find>Comando ok.</find>
       <find>Linle</find>
+      <find>Option</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -156,15 +278,16 @@
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/VariaveisGlobais.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comando.java" />
         <option value="$PROJECT_DIR$/src/test/java/br/unifil/dc/sisop/AppTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/No.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Configurar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Processo.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Relatorio.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Processo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Configurar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java" />
       </list>
     </option>
   </component>
@@ -181,9 +304,20 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="MMU-Simulator" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1672" />
-    <option name="y" value="271" />
+    <option name="x" value="268" />
+    <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -236,7 +370,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543585442892" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543606450517" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -308,7 +442,7 @@
       <workItem from="1543316301778" duration="4080000" />
       <workItem from="1543495416262" duration="21888000" />
       <workItem from="1543577071036" duration="6814000" />
-      <workItem from="1543586117300" duration="243000" />
+      <workItem from="1543586117300" duration="19803000" />
     </task>
     <servers />
   </component>
@@ -318,13 +452,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48058000" />
+    <option name="totallyTimeSpent" value="67618000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1672" y="271" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15279879" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.123471886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -333,15 +467,15 @@
       <window_info id="Learn" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4262295" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4820628" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910313" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.32786885" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32735425" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3295964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -349,7 +483,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3294621" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -398,6 +532,22 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="e.cause" />
@@ -430,6 +580,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,104 +594,107 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/No.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
+    <entry file="file://$PROJECT_DIR$/Comandos para testar.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="408">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Relatorio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Processo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="docComment;method#verificaEspacoBitmap#0;class#Processo#0" />
+            <element signature="method#ContaBloco#0;class#Processo#0" />
+            <element signature="method#swappingBitMap#0;class#Processo#0" />
+            <element signature="docComment;method#recSwappinBitmap#0;class#Processo#0" />
+            <element signature="method#recSwappinBitmap#0;class#Processo#0" />
+            <element signature="docComment;method#pincelCorredor#0;class#Processo#0" />
+            <element signature="method#pincelCorredor#0;class#Processo#0" />
+            <element signature="class#EspacoBitmap#0;class#Processo#0" />
+            <element signature="method#EspacoBitmap#0;class#EspacoBitmap#0;class#Processo#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#pegaNumero#0;class#MetodosAuxiliares#0" />
-            <element signature="docComment;method#pegaHexa#0;class#MetodosAuxiliares#0" />
-            <element signature="method#pegaHexa#0;class#MetodosAuxiliares#0" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2437#2438#0" expanded="true" />
-            <element signature="e#2486#2487#0" expanded="true" />
-            <element signature="e#2537#2538#0" expanded="true" />
-            <element signature="e#2575#2576#0" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="method#verificaBaseNumerica#0;class#MetodosAuxiliares#0" />
+            <element signature="docComment;method#verificaExistencia#0;class#Comandos#0" />
+            <element signature="method#verificaExistencia#0;class#Comandos#0" />
+            <element signature="docComment;method#verificaImplementacao#0;class#Comandos#0" />
+            <element signature="docComment;method#chamaComando#0;class#Comandos#0" />
+            <element signature="method#chamaComando#0;class#Comandos#0" />
+            <element signature="docComment;method#verificaParametros#0;class#Comandos#0" />
+            <element signature="e#2874#2895#0" />
+            <element signature="method#terminar#0;class#Comandos#0" />
+            <element signature="e#3622#3710#0" />
+            <element signature="method#relatorio#0;class#Comandos#0" />
+            <element signature="e#3941#4024#0" />
+            <element signature="method#ajuda#0;class#Comandos#0" />
+            <element signature="docComment;method#configurar#0;class#Comandos#0" />
+            <element signature="e#7043#7096#0" />
+            <element signature="docComment;method#tamanhoDaMemoria#0;class#Comandos#0" />
+            <element signature="e#7633#7673#0" />
+            <element signature="docComment;method#verificarValidadeDaMemoria#0;class#Comandos#0" />
+            <element signature="docComment;method#criaMemoria#0;class#Comandos#0" />
+            <element signature="method#converteHex#0;class#Comandos#0" />
+            <element signature="docComment;method#processo#0;class#Comandos#0" />
+            <element signature="e#11663#11739#0" />
+            <element signature="e#12242#12340#0" />
+            <element signature="e#12682#12772#0" />
+            <element signature="class#TiposComandos#0;class#Comandos#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Configurar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
+        <state relative-caret-position="155">
+          <caret line="148" column="82" selection-start-line="148" selection-start-column="82" selection-end-line="148" selection-end-column="82" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#Configurar#0" />
+            <element signature="method#Configurar#0;class#Configurar#0" />
             <element signature="method#verificaLogica#0;class#Configurar#0" />
             <element signature="method#verificaEntradaQBEM#0;class#Configurar#0" />
             <element signature="method#verificaEntradaQMFI#0;class#Configurar#0" />
-            <element signature="method#verificaEntradaTM#0;class#Configurar#0" />
-            <element signature="method#criaMemoria#0;class#Configurar#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Comandos para testar.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Comandos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="docComment;method#verificaExistencia#0;class#Comandos#0" />
-            <element signature="method#verificaExistencia#0;class#Comandos#0" />
-            <element signature="docComment;method#verificaImplementacao#0;class#Comandos#0" />
-            <element signature="method#verificaImplementacao#0;class#Comandos#0" />
-            <element signature="docComment;method#chamaComando#0;class#Comandos#0" />
-            <element signature="method#chamaComando#0;class#Comandos#0" />
-            <element signature="docComment;method#verificaParametros#0;class#Comandos#0" />
-            <element signature="method#terminar#0;class#Comandos#0" />
-            <element signature="method#relatorio#0;class#Comandos#0" />
-            <element signature="method#ajuda#0;class#Comandos#0" />
-            <element signature="docComment;method#configurar#0;class#Comandos#0" />
-            <element signature="method#configurar#0;class#Comandos#0" />
-            <element signature="docComment;method#tamanhoDaMemoria#0;class#Comandos#0" />
-            <element signature="docComment;method#verificarValidadeDaMemoria#0;class#Comandos#0" />
-            <element signature="method#verificarValidadeDaMemoria#0;class#Comandos#0" />
-            <element signature="docComment;method#criaMemoria#0;class#Comandos#0" />
-            <element signature="method#criaMemoria#0;class#Comandos#0" />
-            <element signature="method#converteHex#0;class#Comandos#0" />
-            <element signature="docComment;method#processo#0;class#Comandos#0" />
-            <element signature="method#processo#0;class#Comandos#0" />
-            <element signature="method#acesso#0;class#Comandos#0" />
-            <element signature="class#TiposComandos#0;class#Comandos#0" />
+            <element signature="e#3804#3834#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="215">
+          <caret line="148" column="34" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="34" />
           <folding>
+            <element signature="e#1543#1589#0" />
             <element signature="docComment;method#processaComando#0;class#Terminal#0" />
             <element signature="docComment;class#Comando#0;class#Terminal#0" />
             <element signature="class#Comando#0;class#Terminal#0" />
             <element signature="docComment;method#Comando#0;class#Comando#0;class#Terminal#0" />
             <element signature="docComment;method#Comando#1;class#Comando#0;class#Terminal#0" />
             <element signature="method#Comando#1;class#Comando#0;class#Terminal#0" />
-            <element signature="e#3517#3518#0" expanded="true" />
-            <element signature="e#3554#3555#0" expanded="true" />
-            <element signature="e#3677#3678#0" expanded="true" />
-            <element signature="e#3722#3723#0" expanded="true" />
-            <element signature="e#3789#3790#0" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-            <element signature="e#3884#3885#0" expanded="true" />
-            <element signature="e#3931#3932#0" expanded="true" />
             <element signature="class#No#0;class#Simulacao#0;class#Terminal#0" />
-            <element signature="class#NoDePaginas#0;class#Simulacao#0;class#Terminal#0" />
+            <element signature="class#NoDePagina#0;class#Simulacao#0;class#Terminal#0" />
+            <element signature="method#setMapeado#0;class#NoDePagina#0;class#Simulacao#0;class#Terminal#0" />
+            <element signature="class#NoDeQuadro#0;class#Simulacao#0;class#Terminal#0" />
+            <element signature="method#setMapeado#0;class#NoDeQuadro#0;class#Simulacao#0;class#Terminal#0" />
           </folding>
         </state>
       </provider>
@@ -550,36 +706,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Processo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/Acesso.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="176" column="67" selection-start-line="176" selection-start-column="67" selection-end-line="176" selection-end-column="67" />
+        <state relative-caret-position="264">
+          <caret line="218" column="39" lean-forward="true" selection-start-line="218" selection-start-column="33" selection-end-line="218" selection-end-column="43" />
           <folding>
-            <element signature="method#Processo#0;class#Processo#0" />
-            <element signature="method#verificaComando#0;class#Processo#0" />
-            <element signature="method#avaliaSimulacao#0;class#Processo#0" />
-            <element signature="docComment;method#pincelCorredor#0;class#Processo#0" />
-            <element signature="method#pincelCorredor#0;class#Processo#0" />
-            <element signature="e#4837#4838#0" expanded="true" />
-            <element signature="e#4875#4876#0" expanded="true" />
-            <element signature="e#4926#4927#0" expanded="true" />
-            <element signature="e#4972#4973#0" expanded="true" />
-            <element signature="e#5006#5007#0" expanded="true" />
-            <element signature="e#5043#5044#0" expanded="true" />
-            <element signature="e#5088#5089#0" expanded="true" />
-            <element signature="e#5132#5133#0" expanded="true" />
-            <element signature="e#5163#5164#0" expanded="true" />
-            <element signature="e#5197#5198#0" expanded="true" />
-            <element signature="e#5236#5237#0" expanded="true" />
-            <element signature="e#5274#5275#0" expanded="true" />
+            <element signature="method#Acesso#0;class#Acesso#0" />
+            <element signature="method#verificaFalhaDePagina#0;class#Acesso#0" />
+            <element signature="method#posicionaPagina#0;class#Acesso#0" />
+            <element signature="method#verificaEmDisco#0;class#Acesso#0" />
+            <element signature="method#verificaAcessoIlegal#0;class#Acesso#0" />
+            <element signature="method#processoExiste#0;class#Acesso#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/unifil/dc/sisop/MetodosAuxiliares.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="7">
+          <caret line="71" column="18" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#pegaHexa#0;class#MetodosAuxiliares#0" />
+            <element signature="e#3051#3052#0" expanded="true" />
+            <element signature="e#3121#3122#0" expanded="true" />
+            <element signature="e#3522#3523#0" expanded="true" />
+            <element signature="e#3590#3591#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

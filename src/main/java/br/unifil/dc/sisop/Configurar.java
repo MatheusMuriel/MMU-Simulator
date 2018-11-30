@@ -48,12 +48,13 @@ public class Configurar extends Comandos{
         }
 
         if ( !( verificaEntradaQBEM(parametros) ) ) return false;
+        Terminal.simulacao.quantBitsEspacoMemoria = quantBitsEspacoMemoria;
 
         if ( !( verificaEntradaQMFI(parametros) ) ) return false;
-        Terminal.Simulacao.memoriaInstalada = quantMemoriaFisicaInstalada;
+        Terminal.simulacao.memoriaInstalada = quantMemoriaFisicaInstalada;
 
         if ( !( verificaEntradaTM(parametros) ) )   return false;
-        Terminal.Simulacao.tipoSimulacao = tipoDeMemoria;
+        Terminal.simulacao.tipoSimulacao = tipoDeMemoria;
 
         if ( !( verificaLogica(parametros) ) )   return false;
 
@@ -63,8 +64,6 @@ public class Configurar extends Comandos{
 
         return false;
     }
-
-
 
     private boolean verificaLogica(ArrayList<String> parametros) {
         //Ver com o Manhani
@@ -145,8 +144,9 @@ public class Configurar extends Comandos{
                         return false;
                     }
                     String qbMSB = parametros.get(3);
-                    if (ma.validaNumerico(qbMSB)) {
+                    if (ma.isValidadeDacimal(qbMSB)) {
                         quantBitsPosMSB = Integer.parseInt(qbMSB);
+                        Terminal.simulacao.quantBitsPosMSB = this.quantBitsPosMSB;
                         tipoDeMemoria = TiposComandos.MemoriaVirtual;
                         return true;
                     } else {
@@ -167,7 +167,7 @@ public class Configurar extends Comandos{
                                 return false;
                             }
                             String tamAM = parametros.get(4);
-                            if (ma.validaNumerico(tamAM)){
+                            if (ma.isValidadeDacimal(tamAM)){
                                 tamPedacoAlocacaoMemoria = Integer.parseInt(tamAM);
                                 tipoDeMemoria = TiposComandos.RegistradoresBitmap;
                                 return true;
@@ -193,11 +193,12 @@ public class Configurar extends Comandos{
     private boolean criaMemoria() {
 
         if (tipoDeMemoria.equals(TiposComandos.RegistradoresBitmap)){
-            int granulacao;
+            Terminal.simulacao.blocoBitmap = tamPedacoAlocacaoMemoria;
+            int granulacao = Terminal.simulacao.blocoBitmap;
 
-            granulacao = 1000;
+            int tamLista = quantMemoriaFisicaInstalada / granulacao;
 
-            Terminal.simulacao.bitmap = new int[granulacao];
+            Terminal.simulacao.bitmap = new int[tamLista];
             return true;
         }
 
@@ -207,6 +208,7 @@ public class Configurar extends Comandos{
         }
 
         if (tipoDeMemoria.equals(TiposComandos.MemoriaVirtual)){
+            Terminal.simulacao.listaQuadros = new ArrayList<>();
 
             //????
 

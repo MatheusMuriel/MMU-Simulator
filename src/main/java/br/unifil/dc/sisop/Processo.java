@@ -8,10 +8,13 @@ public class Processo extends Comandos {
     int pid;
     int tamMemoriaProcesso;
     TiposComandos simulacaoAtual;
+    EspacoBitmap localizacao;
+    public ArrayList<Terminal.Simulacao.NoDePagina> listaPaginas;
 
     public Processo(){
 
-        simulacaoAtual = Terminal.Simulacao.getTipoSimulacao();
+        simulacaoAtual = Terminal.simulacao.getTipoSimulacao();
+        listaPaginas = new ArrayList<>();
     }
 
     public boolean verificaComando(ArrayList<String> parametros) {
@@ -25,7 +28,7 @@ public class Processo extends Comandos {
         if ( !( avaliaSimulacao(parametros) )) return false;
 
         //Pasando em todas as verificações ele faz o algoritmo
-        fristFit(pid, tamMemoriaProcesso);
+        fristFit(pid, tamMemoriaProcesso / 4);
 
 
         return true;
@@ -57,7 +60,9 @@ public class Processo extends Comandos {
                     return false;
             }
 
-            if (tamMemoriaProcesso > Terminal.Simulacao.getMemoriaInstalada()){
+            if (tamMemoriaProcesso > Terminal.simulacao.getMemoriaInstalada()){
+                System.err.println("Processo: " + tamMemoriaProcesso);
+                System.err.println("Memoria instalada: " + Terminal.simulacao.getMemoriaInstalada());
                 System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
                 return false;
             }
@@ -72,9 +77,15 @@ public class Processo extends Comandos {
         if (simulacaoAtual.equals(TiposComandos.RegistradoresBitmap)){
             int[] listaBit = Terminal.simulacao.getBitmap();
 
-            verificaEspacoBitmap();
-            //se chegou aqui é por não encontrou nenhum espaço do tamanho necessario
-            swapping();
+            Optional<EspacoBitmap> espacoLivre = verificaEspacoBitmap(listaBit, 0, tamMemoriaProcesso);
+            if (espacoLivre.isPresent()){
+                //Existe um espaço então pinte ele de 1
+                EspacoBitmap espacoAPintar = espacoLivre.get();
+                pincelCorredor(espacoAPintar, listaBit, 1);
+            }else{
+                //Faz swapping
+            }
+
 
         }else if (simulacaoAtual.equals(TiposComandos.RegistradoresLista)){
             //Percore a lista
@@ -90,12 +101,18 @@ public class Processo extends Comandos {
         return false;
     }
 
-    private Optional<EspacoBitmap> verificaEspacoBitmap(int[] listaBit, int espacoBuscado) {
+    /**
+     * VERIFICANDO ESPAÇOS LIVRES apartir de um determinado ponto
+     * @param listaBit
+     * @param espacoBuscado
+     * @return
+     */
+    private Optional<EspacoBitmap> verificaEspacoBitmap(int[] listaBit, int inicio, int espacoBuscado) {
 
         int contadorDeEspaco = 0;
         int inicioContador = 0;
         boolean estaContando = false;
-        for (int i=0; i < listaBit.length; i++){
+        for (int i=inicio; i < listaBit.length; i++){
 
 
             if (listaBit[i] == 0){
@@ -107,9 +124,9 @@ public class Processo extends Comandos {
             }
 
             if (contadorDeEspaco >= espacoBuscado){
-                //encaixa aqui
-                pincelCorredor(inicioContador, i, listaBit, 1);
-                break;
+                //ENCONTROU LIVRE
+                EspacoBitmap espacoEncontrado = new EspacoBitmap(false,inicioContador,i);
+                return Optional.of(espacoEncontrado);
             }
 
 
@@ -119,19 +136,35 @@ public class Processo extends Comandos {
                 contadorDeEspaco = 0;
             }
         }
-
+        return Optional.empty();
     }
+
+    private Optional<EspacoBitmap> ContaBloco(int[] listaBit, int inicio, int valorBuscado) {
+        int valorContrario = (valorBuscado == 0) ? 1 : 0;
+
+        int contadorDeEspaco = 0;
+        int inicioContador = 0;
+        boolean estaContando = false;
+
+        for (int i=inicio; i < listaBit.length; i++){
+            if (listaBit[i] == valorContrario){
+                boolean ocupado = (valorBuscado == 1) ? false : true;
+                EspacoBitmap aux = new EspacoBitmap(ocupado,inicio,i);
+                return Optional.of(aux);
+            }
+        }
+        return Optional.empty();
+    }
+
 
     private void swappingBitMap(int tamBuscado, int[] bitmap) {
 
         //
         int tail = 0; //index
         int limite = bitmap.length;
+        ArrayList<EspacoBitmap> memoriaSecundaria = new ArrayList<>();
 
-        int resultadoSwapping = recSwappinBitmap(tamBuscado, bitmap, tail, limite);
-        if (resultadoSwapping == 1); //Deu certo
-        if (resultadoSwapping == 2); //Nao encontrou espaço
-        if (resultadoSwapping == 1); //deu certo
+        Optional<EspacoBitmap> resultadoSwapping = recSwappinBitmap(tamBuscado, bitmap, tail, limite, memoriaSecundaria);
 
 
     }
@@ -142,25 +175,56 @@ public class Processo extends Comandos {
      * @param bitmap
      * @param tail
      * @param limite
+     * @param memoriaSecundaria
      * @return
      */
-    private int recSwappinBitmap(int tamBuscado, int[] bitmap, int tail, int limite) {
+    private Optional<EspacoBitmap> recSwappinBitmap(int tamBuscado, int[] bitmap, int tail, int limite, ArrayList<EspacoBitmap> memoriaSecundaria) {
 
-        if ()
-        if (tail == limite) return 2;
+        //Olha se tem espaço necessario vago
+        Optional<EspacoBitmap> olheiro = verificaEspacoBitmap(bitmap, tail, tamBuscado);
+        if (olheiro.isPresent()){
+            //tem tamanho
+            return olheiro;
+        }
+
+        if (tail == limite ) return Optional.empty(); //Fim da recursão
 
 
+
+        if (bitmap[tail] == 1){
+            //pega o tamanho do bloco ocupado
+            Optional<EspacoBitmap> blocoCheio = ContaBloco(bitmap,tail,1);
+            if (blocoCheio.isPresent()){
+                memoriaSecundaria.add(blocoCheio.get());
+                pincelCorredor(blocoCheio.get(),bitmap,0);
+
+                Optional<EspacoBitmap> novoEspaco = verificaEspacoBitmap(bitmap,0,blocoCheio.get().getTamanho());
+                if (novoEspaco.isPresent()){
+                    pincelCorredor(novoEspaco.get(),bitmap,1);
+                    memoriaSecundaria.remove(blocoCheio.get());
+                    tail += novoEspaco.get().getFim();
+                }else {
+                    //Não tem expaço pra encaixar esse processo
+                    pincelCorredor(blocoCheio.get(),bitmap,1);
+                    memoriaSecundaria.remove(blocoCheio.get());
+                    tail += blocoCheio.get().getTamanho();
+                }
+            } else System.out.println("Não foi encontrado o fim desse pedaço de memoria.");
+        }
+        tail ++;
+        return recSwappinBitmap(tamBuscado,bitmap, tail,limite,memoriaSecundaria);
     }
 
 
     /**
      * Metodo que prenche um array com um determinado valor de um ponto até outro
-     * @param inicio
-     * @param fim
+     * @param espaco TAD contendo inicio e fim de aonde deve ser pintado
      * @param listaBit
      * @param valor
      */
-    private void pincelCorredor(int inicio, int fim, int[] listaBit, int valor) {
+    public void pincelCorredor(EspacoBitmap espaco, int[] listaBit, int valor) {
+        int inicio  = espaco.getInicio();
+        int fim     = espaco.getFim();
 
         for (int i = inicio; i <= fim; i++ ){
             listaBit[i] = valor;
@@ -169,10 +233,11 @@ public class Processo extends Comandos {
     }
 
 
-    private class EspacoBitmap {
+    protected static class EspacoBitmap {
         boolean ocupado;
         int inicio;
         int fim;
+
 
         public EspacoBitmap(boolean ocupado, int inicio, int fim) {
             this.ocupado = ocupado;
@@ -203,6 +268,11 @@ public class Processo extends Comandos {
         public void setFim(int fim) {
             this.fim = fim;
         }
+
+        public int getTamanho(){
+            return (fim - inicio);
+        }
+
     }
 }
 

@@ -1,10 +1,7 @@
 package br.unifil.dc.sisop;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import static br.unifil.dc.sisop.Terminal.Simulacao.memoriaInstalada;
-import static br.unifil.dc.sisop.Terminal.Simulacao.tipoSimulacao;
+import static br.unifil.dc.sisop.Terminal.simulacao;
 
 public class Comandos {
 
@@ -56,7 +53,7 @@ public class Comandos {
                 return false;
 
             case ("relatorio"):
-                return false;
+                return true;
 
             case ("ajuda"):
                 return false;
@@ -68,7 +65,7 @@ public class Comandos {
                 return true;
 
             case ("acesso"):
-                return false;
+                return true;
             default:
                 System.out.println("Comando não implementado.");
                 return false;
@@ -102,6 +99,10 @@ public class Comandos {
                 return false;
 
             case ("relatorio"):
+                Relatorio obRelatorio = new Relatorio();
+                System.out.println("Relatorio");
+                obRelatorio.tipoSimulacao();
+                obRelatorio.quantidadeDeMemoria();
                 return false;
 
             case ("ajuda"):
@@ -119,12 +120,15 @@ public class Comandos {
 
             case ("processo"):
                 Processo obProcesso = new Processo();
+                simulacao.listaProcessos.add(obProcesso);
                 obProcesso.verificaComando(cmd.getParametros());
 
 
                 return false;
 
             case ("acesso"):
+                Acesso obAcesso = new Acesso();
+                obAcesso.processaAceso(cmd.getParametros());
                 //Parametros: pid e a posição da memória
 
 
@@ -182,13 +186,13 @@ public class Comandos {
                             //CHEGADA FINAL
                             comando = TiposComandos.RegistradoresBitmap;
                             //System.out.println("bitmap com tamanho " + t);
-                            tipoSimulacao = comando;
+                            simulacao.tipoSimulacao = comando;
                             return true;
                         }
                     case ("lista-encadeada"):
                         comando = TiposComandos.RegistradoresLista;
                         //System.out.println("Lista encadeada");
-                        tipoSimulacao = comando;
+                        simulacao.tipoSimulacao = comando;
                         return true;
 
                     default:
@@ -205,7 +209,7 @@ public class Comandos {
                 }else {
                     comando = TiposComandos.MemoriaVirtual;
                     //System.out.println("memoria virtual com quantidade de bits " + qBitsPosMSB);
-                    tipoSimulacao = comando;
+                    simulacao.tipoSimulacao = comando;
                     return true;
                 }
             default:
@@ -245,7 +249,7 @@ public class Comandos {
             memoriaReal = Integer.parseInt(memoriaFisica);
         }
 
-        memoriaInstalada = memoriaReal;
+        simulacao.memoriaInstalada = memoriaReal;
         verificarValidadeDaMemoria(numBits, memoriaReal);
 
         //*** Verificar aqui essas saidas
@@ -272,7 +276,7 @@ public class Comandos {
 
         if(quantidadeQuadros == memoriaReal){
             //Define variavel global da simulação 
-            memoriaInstalada = memoriaReal;
+            simulacao.memoriaInstalada = memoriaReal;
             criaMemoria(numBits, contador);
         }else{
             System.out.println("entrada invalida! você precisa digitar uma memoria valida");
@@ -286,9 +290,9 @@ public class Comandos {
      */
     private static void criaMemoria(int numBits, int contador) {
 
-        if (tipoSimulacao == TiposComandos.RegistradoresBitmap) System.out.println("BITMAP");
-        if (tipoSimulacao == TiposComandos.RegistradoresLista) System.out.println("LISTA");
-        if (tipoSimulacao == TiposComandos.MemoriaVirtual) System.out.println("MEMORIA");
+        if (simulacao.tipoSimulacao == TiposComandos.RegistradoresBitmap) System.out.println("BITMAP");
+        if (simulacao.tipoSimulacao == TiposComandos.RegistradoresLista) System.out.println("LISTA");
+        if (simulacao.tipoSimulacao == TiposComandos.MemoriaVirtual) System.out.println("MEMORIA");
 
 
 
@@ -336,8 +340,8 @@ public class Comandos {
         }
 
         //Verifica se a simuação atual é do tipo Swapping
-        if(tipoSimulacao == TiposComandos.RegistradoresBitmap
-                || tipoSimulacao == TiposComandos.RegistradoresLista){
+        if(simulacao.tipoSimulacao == TiposComandos.RegistradoresBitmap
+                || simulacao.tipoSimulacao == TiposComandos.RegistradoresLista){
             System.out.println("Processo Swapping");
 
 
@@ -347,11 +351,11 @@ public class Comandos {
             int tamMemProc = ma.pegaNumero(parametros.get(1));
 
             if (tamMemProc <= -1) System.err.println("É precisso indicar o tamanho da memoria do novo processo.");
-            if (tamMemProc > memoriaInstalada) System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
+            if (tamMemProc > simulacao.memoriaInstalada) System.err.println("O tamanho do processo não pode ser maior que a memoria instalada.");
 
             //(b) utilizar o algoritmo de first-fit para encaixar o processo na memória.
             //Ler no PDF
-        }else if (tipoSimulacao == TiposComandos.MemoriaVirtual){
+        }else if (simulacao.tipoSimulacao == TiposComandos.MemoriaVirtual){
             System.out.println("Memoria Virtual processo");
 
 
@@ -365,15 +369,15 @@ public class Comandos {
 
     public static void acesso(Terminal.Comando cmd){
 
-        if (tipoSimulacao == TiposComandos.RegistradoresBitmap
-                || tipoSimulacao == TiposComandos.RegistradoresLista){
+        if (simulacao.tipoSimulacao == TiposComandos.RegistradoresBitmap
+                || simulacao.tipoSimulacao == TiposComandos.RegistradoresLista){
             //(a) Caso esteja-se simulando o swapping, verificar se o acesso foi ilegal, e em caso afirmativo,
             //o processo é automaticamente encerrado, e o terminal avisa o ocorrido ao usuário.
             //(b) Ainda em caso de swapping, se o processo estiver no disco, o sistema recusa o comando
             //e gera uma mensagem de erro para o usuário.
         }
 
-        if (tipoSimulacao == TiposComandos.MemoriaVirtual){
+        if (simulacao.tipoSimulacao == TiposComandos.MemoriaVirtual){
             //(c) Em caso de memória virtual, se o acesso causar uma falha de página, o sistema deverá
             //informar os detalhes para o usuário: página acessada que causou falha, quadro liberado
             //e onde consequentemente a página foi posicionada.

@@ -2,7 +2,6 @@ package br.unifil.dc.sisop;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Terminal {
@@ -13,6 +12,8 @@ public class Terminal {
 
     Terminal() {
         simulacao = new Simulacao();
+        simulacao.listaProcessos = new ArrayList<>();
+
 
     }
 
@@ -22,6 +23,26 @@ public class Terminal {
 
         String entrada = teclado.nextLine();
         //System.out.println(entrada);
+        if (entrada.equals("paradaTeste")){
+            int a = 1+1;
+            int[] bitPoison = simulacao.getBitmap();
+
+            processaEntrada("relatorio");
+            Processo pc = new Processo();
+            Processo.EspacoBitmap e1 = new Processo.EspacoBitmap(false,100, 130);
+            Processo.EspacoBitmap e2 = new Processo.EspacoBitmap(false,150, 190);
+            Processo.EspacoBitmap e3 = new Processo.EspacoBitmap(false,10, 20);
+            pc.pincelCorredor(e1,bitPoison,0);
+            pc.pincelCorredor(e2,bitPoison,0);
+            pc.pincelCorredor(e3,bitPoison,0);
+            int b = bitPoison[0];
+            processaEntrada("relatorio");
+        }
+
+        if (entrada.equals("paradaTeste2")){
+            int a = 1+1;
+            int[] bitPoison = simulacao.getBitmap();
+        }
         processaEntrada(entrada);
     }
 
@@ -116,51 +137,53 @@ public class Terminal {
     }
 
     public static class Simulacao{
-        public static Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
-        public static int memoriaInstalada;
-        public ArrayList<NoDePaginas> listaPaginas;
+        public Comandos.TiposComandos tipoSimulacao = Comandos.TiposComandos.nenhum;
+        public int memoriaInstalada;
+        public ArrayList<NoDeQuadro> listaQuadros;
         public int[] bitmap;
-
+        public int blocoBitmap;
+        public int quantBitsEspacoMemoria;
+        public ArrayList<Processo> listaProcessos;
+        public ArrayList<Processo> disco;
+        public LinkedList<No> listaEncadeada;
+        public int quantBitsPosMSB;
 
 
         public int[] getBitmap() {
             return bitmap;
         }
 
-        public static LinkedList<No> listaEncadeada;
-
-
-        public static LinkedList<No> getListaEncadeada() {
+        public LinkedList<No> getListaEncadeada() {
             return listaEncadeada;
         }
 
-        public static Comandos.TiposComandos getTipoSimulacao() {
+        public Comandos.TiposComandos getTipoSimulacao() {
             return tipoSimulacao;
         }
 
-        public static int getMemoriaInstalada() {
+        public int getMemoriaInstalada() {
             return memoriaInstalada;
         }
+
+
 
         public class No {
             int inicio;
             int fim;
             int tamanho;
         }
-
-        public class NoDePaginas {
+        public class NoDePagina {
             int numero;
             int inicio;
             int fim;
             boolean mapeado;
-
-            int quandro;
+            NoDeQuadro quandro;
 
             public int getNumero() {
                 return numero;
             }
 
-            public int getQuandro() {
+            public NoDeQuadro getQuandro() {
                 return quandro;
             }
 
@@ -168,10 +191,72 @@ public class Terminal {
                 return mapeado;
             }
 
-            public void setMapeado(boolean mapeado) {
+            public void setMapeado(boolean mapeado, NoDeQuadro nQ) {
+                this.quandro = nQ;
                 this.mapeado = mapeado;
             }
+
+            public int getInicio() {
+                return inicio;
+            }
+
+            public void setInicio(int inicio) {
+                this.inicio = inicio;
+            }
+
+            public int getFim() {
+                return fim;
+            }
+
+            public void setFim(int fim) {
+                this.fim = fim;
+            }
+
+
         }
+        public class NoDeQuadro {
+            int numero;
+            int inicio;
+            int fim;
+            boolean mapeado;
+            NoDePagina pagina;
+
+            public int getNumero() {
+                return numero;
+            }
+
+            public NoDePagina getPagina() {
+                return pagina;
+            }
+
+            public boolean isMapeado() {
+                return mapeado;
+            }
+
+            public void setMapeado(boolean mapeado, NoDePagina pagina) {
+                this.pagina = pagina;
+                this.mapeado = mapeado;
+            }
+
+            public int getInicio() {
+                return inicio;
+            }
+
+            public void setInicio(int inicio) {
+                this.inicio = inicio;
+            }
+
+            public int getFim() {
+                return fim;
+            }
+
+            public void setFim(int fim) {
+                this.fim = fim;
+            }
+
+
+        }
+
     }
 
 

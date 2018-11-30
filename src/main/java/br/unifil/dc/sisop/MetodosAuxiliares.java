@@ -1,5 +1,6 @@
 package br.unifil.dc.sisop;
 
+import javax.print.DocFlavor;
 import java.text.Normalizer;
 import java.util.Optional;
 
@@ -88,10 +89,6 @@ public class MetodosAuxiliares {
         return I;
     }
 
-    public boolean validaNumerico(String I){
-        return I.matches("[0-9]+");
-    }
-
     public boolean isValidadeDacimal(String I){
         return I.matches("^[0-9]+$");
     }
@@ -115,4 +112,15 @@ public class MetodosAuxiliares {
 
     }
 
+    public String pegaEnderecamento(int posicao) {
+        return Integer.toBinaryString(posicao);
+    }
+
+    public int[] pegaBitsPagina(String enderecamento, int bitsPosMSB) {
+        int[] saida = new int[bitsPosMSB];
+        for (int i=0; i < bitsPosMSB; i++){
+            saida[i] = enderecamento.charAt(i);
+        }
+        return saida;
+    }
 }
